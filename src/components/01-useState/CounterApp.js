@@ -11,8 +11,9 @@ const CounterApp = () => {
 
   return (
     <>
-      <h1>Counter {counter1}</h1>
-      <h1>Counter {counter2}</h1>
+      <h2>Counter</h2>
+      <h3>Counter {counter1}</h3>
+      <h3>Counter {counter2}</h3>
       <hr />
       <button
         className="btn btn-primary"
