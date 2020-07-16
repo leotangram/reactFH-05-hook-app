@@ -1,15 +1,12 @@
 import React from 'react'
-import CounterApp from './components/01-useState/CounterApp'
-import CounterWithCustomHook from './components/01-useState/CounterWithCustomHook'
+import UseState from './components/01-useState/UseState'
+import UseEffect from './components/02-useEffect/UseEffect'
 
 const App = () => {
   return (
     <>
-      <div>
-        <h1>01-useState</h1>
-        <CounterApp />
-        <CounterWithCustomHook />
-      </div>
+      <UseState />
+      <UseEffect />
     </>
   )
 }
