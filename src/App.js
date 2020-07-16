@@ -1,7 +1,8 @@
 import React from 'react'
+import CounterApp from './components/01-useState/CounterApp'
 
 const App = () => {
-  return <div>'App'</div>
+  return <CounterApp />
 }
 
 export default App
