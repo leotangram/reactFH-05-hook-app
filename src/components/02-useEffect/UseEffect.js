@@ -1,5 +1,6 @@
 import React from 'react'
 import SimpleForm from './SimpleForm'
+import FormWithCustomHook from './FormWithCustomHook'
 
 const UseEffect = () => {
   return (
@@ -8,6 +9,7 @@ const UseEffect = () => {
       <br />
       <br />
       <SimpleForm />
+      <FormWithCustomHook />
     </>
   )
 }
