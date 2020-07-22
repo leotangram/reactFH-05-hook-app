@@ -1,6 +1,7 @@
 import React from 'react'
 import Memorize from './Memorize'
 import MemoHook from './MemoHook'
+import CallBackHook from './CallBackHook'
 
 const Memos = () => {
   return (
@@ -12,6 +13,8 @@ const Memos = () => {
       <Memorize />
       <br />
       <MemoHook />
+      <br />
+      <CallBackHook />
     </div>
   )
 }
