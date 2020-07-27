@@ -18,6 +18,21 @@ const TodoApp = () => {
     localStorage.setItem('todos', JSON.stringify(todos))
   }, [todos])
 
+  const handleDelete = todoId => {
+    const action = {
+      type: 'delete',
+      payload: todoId
+    }
+    dispatch(action)
+  }
+
+  const handleToggle = todoId => {
+    dispatch({
+      type: 'toggle',
+      payload: todoId
+    })
+  }
+
   const handleSubmit = e => {
     e.preventDefault()
 
@@ -48,8 +63,16 @@ const TodoApp = () => {
           <ul className="list-group list-group-flush">
             {todos.map(({ id, description, done }, index) => (
               <li key={id} className="list-group-item">
-                <p className="text-center">{`${index + 1}. ${description}`}</p>
-                <button className="btn btn-danger">Borrar</button>
+                <p
+                  className={`${done && 'complete'}`}
+                  onClick={() => handleToggle(id)}
+                >{`${index + 1}. ${description}`}</p>
+                <button
+                  className="btn btn-danger"
+                  onClick={() => handleDelete(id)}
+                >
+                  Borrar
+                </button>
               </li>
             ))}
           </ul>
