@@ -1,8 +1,8 @@
 import React, { useReducer, useEffect } from 'react'
 import './styles.css'
 import { todoReducer } from './todoReducer'
-import { useForm } from '../../hook/useForm'
 import TodoList from './TodoList'
+import TodoAdd from './TodoAdd'
 
 const init = () => {
   return JSON.parse(localStorage.getItem('todos')) || []
@@ -10,10 +10,6 @@ const init = () => {
 
 const TodoApp = () => {
   const [todos, dispatch] = useReducer(todoReducer, [], init)
-  const [formValues, handleInputChange, reset] = useForm({
-    description: ''
-  })
-  const { description } = formValues
 
   useEffect(() => {
     localStorage.setItem('todos', JSON.stringify(todos))
@@ -34,22 +30,11 @@ const TodoApp = () => {
     })
   }
 
-  const handleSubmit = e => {
-    e.preventDefault()
-
-    const newTodo = {
-      id: new Date().getTime(),
-      description: description,
-      done: false
-    }
-
-    const action = {
+  const handleAddTodo = newTodo => {
+    dispatch({
       type: 'add',
       payload: newTodo
-    }
-
-    dispatch(action)
-    reset()
+    })
   }
 
   return (
@@ -68,25 +53,7 @@ const TodoApp = () => {
           />
         </div>
         <div className="col-5">
-          <h4>Agregar TODO</h4>
-          <hr />
-          <form onSubmit={handleSubmit}>
-            <input
-              type="text"
-              name="description"
-              placeholder="Aprender..."
-              autoComplete="off"
-              className="form-control"
-              value={description}
-              onChange={handleInputChange}
-            />
-            <button
-              className="btn btn-outline-primary mt-1 btn-block"
-              type="submit"
-            >
-              Agregar
-            </button>
-          </form>
+          <TodoAdd handleAddTodo={handleAddTodo} />
         </div>
       </div>
     </div>
