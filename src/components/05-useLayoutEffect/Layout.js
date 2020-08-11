@@ -1,7 +1,7 @@
 import React, { useLayoutEffect, useRef, useState } from 'react'
 import '../02-useEffect/effects.css'
-import { useFetch } from '../../hook/useFetch'
-import { useCounter } from '../../hook/useCounter'
+import { useFetch } from '../../hooks/useFetch'
+import { useCounter } from '../../hooks/useCounter'
 import './layout.css'
 
 const Layout = () => {

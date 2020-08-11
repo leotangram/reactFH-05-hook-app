@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react'
-import { useCounter } from '../../hook/useCounter'
+import { useCounter } from '../../hooks/useCounter'
 import { heavyProccess } from '../../helpers/heavyProccess'
 
 const MemoHook = () => {
