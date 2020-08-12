@@ -17,6 +17,13 @@ export const useFetch = url => {
       .then(data => {
         isMountedRef.current && setData({ loading: false, error: null, data })
       })
+      .catch(() => {
+        setData({
+          data: null,
+          loading: false,
+          error: 'No se pudo cargar la info'
+        })
+      })
   }, [url])
 
   return data
