@@ -10,7 +10,7 @@ describe('todoReducer', () => {
   test('should add a TODO', () => {
     const newTodo = {
       id: 3,
-      desc: 'Aprender Express',
+      description: 'Aprender Express',
       done: false
     }
 
