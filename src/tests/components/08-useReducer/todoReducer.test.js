@@ -22,4 +22,24 @@ describe('todoReducer', () => {
     const state = todoReducer(demoTodos, action)
     expect(state).toEqual([...demoTodos, newTodo])
   })
+
+  test('should delete a TODO', () => {
+    const action = {
+      type: 'delete',
+      payload: 1
+    }
+    const state = todoReducer(demoTodos, action)
+    expect(state.length).toBe(1)
+    expect(state).toEqual([demoTodos[1]])
+  })
+
+  test('should change the toggle of TODO', () => {
+    const action = {
+      type: 'toggle',
+      payload: 1
+    }
+    const state = todoReducer(demoTodos, action)
+    expect(state[0].done).toBe(true)
+    expect(state[1]).toEqual(demoTodos[1])
+  })
 })
